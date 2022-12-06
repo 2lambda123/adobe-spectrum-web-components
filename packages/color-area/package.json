@@ -61,7 +61,6 @@
         "lit-html"
     ],
     "dependencies": {
-        "@ctrl/tinycolor": "^3.3.3",
         "@spectrum-web-components/base": "^0.40.2",
         "@spectrum-web-components/color-handle": "^0.40.2",
         "@spectrum-web-components/opacity-checkerboard": "^0.40.2",
@@ -69,6 +68,7 @@
         "@spectrum-web-components/shared": "^0.40.2"
     },
     "devDependencies": {
+        "@ctrl/tinycolor": "^3.3.3",
         "@spectrum-css/colorarea": "^4.0.51"
     },
     "types": "./src/index.d.ts",
