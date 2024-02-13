@@ -1,252 +1,252 @@
 {
-    "name": "documentation",
-    "version": "0.40.4",
-    "private": true,
-    "description": "The documentation site for Spectrum Web Components",
-    "license": "Apache-2.0",
-    "author": "",
-    "main": "index.js",
-    "type": "module",
-    "scripts": {
-        "build": "wireit",
-        "build:assets": "wireit",
-        "build:eleventy": "wireit",
-        "build:move-css": "wireit",
-        "build:postcss": "wireit",
-        "build:production": "wireit",
-        "build:search-index": "wireit",
-        "build:search-index:prod": "wireit",
-        "build:ts": "wireit",
-        "copy-docs": "wireit",
-        "serve": "wireit",
-        "watch": "yarn serve --watch"
-    },
-    "dependencies": {
-        "@spectrum-web-components/bundle": "^0.40.4",
-        "@spectrum-web-components/custom-vars-viewer": "^0.40.4"
-    },
-    "devDependencies": {
-        "@11ty/eleventy": "^2.0.1",
-        "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
-        "@fullhuman/postcss-purgecss": "^5.0.0",
-        "@open-wc/building-rollup": "^3.0.2",
-        "@rollup/plugin-alias": "^5.0.1",
-        "@rollup/plugin-commonjs": "^25.0.7",
-        "@rollup/plugin-json": "^6.0.1",
-        "@rollup/plugin-node-resolve": "^15.2.3",
-        "@toycode/markdown-it-class": "^1.2.4",
-        "@types/lunr": "^2.3.3",
-        "@types/prismjs": "^1.16.6",
-        "@web/dev-server": "^0.4.1",
-        "@web/rollup-plugin-copy": "^0.5.1",
-        "@web/rollup-plugin-html": "^2.1.2",
-        "alex": "^10.0.0",
-        "esbuild-plugin-lit-css": "^2.0.5",
-        "lunr": "^2.3.9",
-        "markdown-it-anchor": "^8.4.1",
-        "markdown-it-for-inline": "^0.1.1",
-        "postcss-cli": "^11.0.0",
-        "posthtml": "^0.16.6",
-        "posthtml-attrs-parser": "^0.1.1",
-        "posthtml-match-helper": "^1.0.3",
-        "prismjs": "^1.29.0",
-        "rimraf": "^5.0.1",
-        "rollup": "^3.27.2",
-        "rollup-plugin-lit-css": "^4.0.1",
-        "rollup-plugin-minify-html-literals": "^1.2.6",
-        "rollup-plugin-styles": "^4.0.0",
-        "rollup-plugin-visualizer": "^5.9.2",
-        "rollup-plugin-workbox": "^8.1.0",
-        "wireit": "^0.14.1"
-    },
-    "sideEffects": [
-        "_site/**/*.css",
-        "_site/**/*.js",
-        "_site/**/*.json",
-        "src/**/*.css",
-        "src/**/*.js",
-        "src/**/*.ts"
-    ],
-    "wireit": {
-        "build": {
-            "command": "rollup -c rollup.config.js",
-            "dependencies": [
-                {
-                    "script": "build:assets"
-                },
-                {
-                    "script": "build:search-index"
-                }
-            ]
+  "name": "documentation",
+  "version": "0.40.4",
+  "private": true,
+  "description": "The documentation site for Spectrum Web Components",
+  "license": "Apache-2.0",
+  "author": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "wireit",
+    "build:assets": "wireit",
+    "build:eleventy": "wireit",
+    "build:move-css": "wireit",
+    "build:postcss": "wireit",
+    "build:production": "wireit",
+    "build:search-index": "wireit",
+    "build:search-index:prod": "wireit",
+    "build:ts": "wireit",
+    "copy-docs": "wireit",
+    "serve": "wireit",
+    "watch": "yarn serve --watch"
+  },
+  "dependencies": {
+    "@spectrum-web-components/bundle": "^0.40.4",
+    "@spectrum-web-components/custom-vars-viewer": "^0.40.4"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
+    "@fullhuman/postcss-purgecss": "^5.0.0",
+    "@open-wc/building-rollup": "^3.0.2",
+    "@rollup/plugin-alias": "^5.0.1",
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-json": "^6.0.1",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@toycode/markdown-it-class": "^1.2.4",
+    "@types/lunr": "^2.3.3",
+    "@types/prismjs": "^1.16.6",
+    "@web/dev-server": "^0.4.1",
+    "@web/rollup-plugin-copy": "^0.5.1",
+    "@web/rollup-plugin-html": "^2.1.2",
+    "alex": "^10.0.0",
+    "esbuild-plugin-lit-css": "^2.0.5",
+    "lunr": "^2.3.9",
+    "markdown-it-anchor": "^8.4.1",
+    "markdown-it-for-inline": "^0.1.1",
+    "postcss-cli": "^11.0.0",
+    "posthtml": "^0.16.6",
+    "posthtml-attrs-parser": "^0.1.1",
+    "posthtml-match-helper": "^1.0.3",
+    "prismjs": "^1.29.0",
+    "rimraf": "^5.0.1",
+    "rollup": "^3.27.2",
+    "rollup-plugin-lit-css": "^4.0.1",
+    "rollup-plugin-minify-html-literals": "^1.2.6",
+    "rollup-plugin-styles": "^4.0.0",
+    "rollup-plugin-visualizer": "^5.9.2",
+    "rollup-plugin-workbox": "^8.1.0",
+    "wireit": "^0.14.1"
+  },
+  "sideEffects": [
+    "_site/**/*.css",
+    "_site/**/*.js",
+    "_site/**/*.json",
+    "src/**/*.css",
+    "src/**/*.js",
+    "src/**/*.ts"
+  ],
+  "wireit": {
+    "build": {
+      "command": "rollup -c rollup.config.js",
+      "dependencies": [
+        {
+          "script": "build:assets"
         },
-        "build:assets": {
-            "dependencies": [
-                {
-                    "script": "build:ts"
-                },
-                {
-                    "script": "build:move-css"
-                },
-                {
-                    "script": "build:postcss"
-                }
-            ]
-        },
-        "build:eleventy": {
-            "command": "eleventy --config=.eleventy.cjs --incremental --quiet",
-            "dependencies": [
-                {
-                    "script": "copy-docs"
-                }
-            ],
-            "files": [
-                "./content/**/*",
-                "./.eleventy.cjs"
-            ],
-            "clean": "if-file-deleted",
-            "output": [
-                "_site/**/*.html",
-                "_site/favicon.ico",
-                "_site/favicon.svg",
-                "_site/404.html",
-                "_site/serviceWorker.js",
-                "_site/images/**/*",
-                "_site/manifest.webmanifest"
-            ]
-        },
-        "build:move-css": {
-            "command": "mkdir -p _site/src/components/ && cp src/components/*.css _site/src/components/",
-            "files": [
-                "./src/components/*.css",
-                "!./src/components/style.css",
-                "!./src/components/fonts.css"
-            ],
-            "output": [
-                "./_site/src/components/*.css",
-                "!./_site/src/components/style.css",
-                "!./_site/src/components/fonts.css"
-            ],
-            "clean": "if-file-deleted"
-        },
-        "build:postcss": {
-            "command": "postcss src/components/{styles,fonts,medium,large,light,dark}.css -d _site/ --config src/postcss.config.cjs",
-            "files": [
-                "./src/components/styles.css",
-                "./src/components/medium.css",
-                "./src/components/large.css",
-                "./src/components/light.css",
-                "./src/components/dark.css",
-                "./src/components/fonts.css",
-                "src/postcss.config.cjs",
-                "_site/**/*.html"
-            ],
-            "output": [
-                "./_site/src/components/styles.css",
-                "./_site/src/components/medium.css",
-                "./_site/src/components/large.css",
-                "./_site/src/components/light.css",
-                "./_site/src/components/dark.css",
-                "./_site/src/components/fonts.css"
-            ],
-            "clean": "if-file-deleted",
-            "dependencies": [
-                {
-                    "script": "build:eleventy",
-                    "cascade": false
-                }
-            ]
-        },
-        "build:production": {
-            "command": "SWC_DIR=spectrum-web-components rollup -c rollup.config.js",
-            "dependencies": [
-                {
-                    "script": "build:assets"
-                },
-                {
-                    "script": "build:search-index:prod"
-                }
-            ]
-        },
-        "build:search-index": {
-            "command": "node scripts/build-search-index.js",
-            "files": [
-                "../../packages/*/*.md",
-                "../../tools/*/*.md",
-                "./scripts/build-search-index.js"
-            ],
-            "output": [
-                "_site/src/searchIndex.json",
-                "dist/searchIndex.json"
-            ]
-        },
-        "build:search-index:prod": {
-            "command": "SWC_DIR=spectrum-web-components node scripts/build-search-index.js",
-            "files": [
-                "../../packages/*/*.md",
-                "../../tools/*/*.md",
-                "./scripts/build-search-index.js"
-            ],
-            "output": [
-                "_site/src/searchIndex.json",
-                "dist/searchIndex.json"
-            ]
-        },
-        "build:ts": {
-            "command": "node scripts/build-ts.js",
-            "files": [
-                "./src/**/*.ts",
-                "scripts/build-ts.js"
-            ],
-            "output": [
-                "./src/**/*.js",
-                "!src/utils/**/*.js"
-            ],
-            "clean": "if-file-deleted",
-            "dependencies": [
-                {
-                    "script": "../css-custom-vars-viewer/:build"
-                },
-                {
-                    "script": "../../:build"
-                }
-            ]
-        },
-        "copy-docs": {
-            "command": "node scripts/copy-component-docs.js",
-            "files": [
-                "../../packages/**/*.md",
-                "../../packages/**/*.ts",
-                "../../tools/**/*.md",
-                "../../tools/**/*.ts",
-                "scripts/copy-component-docs.js",
-                "scripts/component-template-parts.js"
-            ],
-            "clean": "if-file-deleted",
-            "output": [
-                "content/components/**/*.md",
-                "content/tools/**/*.md"
-            ],
-            "dependencies": [
-                {
-                    "script": "../../:docs:analyze",
-                    "cascade": false
-                }
-            ]
-        },
-        "serve": {
-            "command": "wds --config web-dev-server.config.js",
-            "service": true,
-            "files": [],
-            "dependencies": [
-                {
-                    "script": "build:assets",
-                    "cascade": false
-                },
-                {
-                    "script": "build:search-index",
-                    "cascade": false
-                }
-            ]
+        {
+          "script": "build:search-index"
         }
+      ]
+    },
+    "build:assets": {
+      "dependencies": [
+        {
+          "script": "build:ts"
+        },
+        {
+          "script": "build:move-css"
+        },
+        {
+          "script": "build:postcss"
+        }
+      ]
+    },
+    "build:eleventy": {
+      "command": "eleventy --config=.eleventy.cjs --incremental --quiet",
+      "dependencies": [
+        {
+          "script": "copy-docs"
+        }
+      ],
+      "files": [
+        "./content/**/*",
+        "./.eleventy.cjs"
+      ],
+      "clean": "if-file-deleted",
+      "output": [
+        "_site/**/*.html",
+        "_site/favicon.ico",
+        "_site/favicon.svg",
+        "_site/404.html",
+        "_site/serviceWorker.js",
+        "_site/images/**/*",
+        "_site/manifest.webmanifest"
+      ]
+    },
+    "build:move-css": {
+      "command": "mkdir -p _site/src/components/ && cp src/components/*.css _site/src/components/",
+      "files": [
+        "./src/components/*.css",
+        "!./src/components/style.css",
+        "!./src/components/fonts.css"
+      ],
+      "output": [
+        "./_site/src/components/*.css",
+        "!./_site/src/components/style.css",
+        "!./_site/src/components/fonts.css"
+      ],
+      "clean": "if-file-deleted"
+    },
+    "build:postcss": {
+      "command": "postcss src/components/{styles,fonts,medium,large,light,dark}.css -d _site/ --config src/postcss.config.cjs",
+      "files": [
+        "./src/components/styles.css",
+        "./src/components/medium.css",
+        "./src/components/large.css",
+        "./src/components/light.css",
+        "./src/components/dark.css",
+        "./src/components/fonts.css",
+        "src/postcss.config.cjs",
+        "_site/**/*.html"
+      ],
+      "output": [
+        "./_site/src/components/styles.css",
+        "./_site/src/components/medium.css",
+        "./_site/src/components/large.css",
+        "./_site/src/components/light.css",
+        "./_site/src/components/dark.css",
+        "./_site/src/components/fonts.css"
+      ],
+      "clean": "if-file-deleted",
+      "dependencies": [
+        {
+          "script": "build:eleventy",
+          "cascade": false
+        }
+      ]
+    },
+    "build:production": {
+      "command": "SWC_DIR=spectrum-web-components rollup -c rollup.config.js",
+      "dependencies": [
+        {
+          "script": "build:assets"
+        },
+        {
+          "script": "build:search-index:prod"
+        }
+      ]
+    },
+    "build:search-index": {
+      "command": "node scripts/build-search-index.js",
+      "files": [
+        "../../packages/*/*.md",
+        "../../tools/*/*.md",
+        "./scripts/build-search-index.js"
+      ],
+      "output": [
+        "_site/src/searchIndex.json",
+        "dist/searchIndex.json"
+      ]
+    },
+    "build:search-index:prod": {
+      "command": "SWC_DIR=spectrum-web-components node scripts/build-search-index.js",
+      "files": [
+        "../../packages/*/*.md",
+        "../../tools/*/*.md",
+        "./scripts/build-search-index.js"
+      ],
+      "output": [
+        "_site/src/searchIndex.json",
+        "dist/searchIndex.json"
+      ]
+    },
+    "build:ts": {
+      "command": "node scripts/build-ts.js",
+      "files": [
+        "./src/**/*.ts",
+        "scripts/build-ts.js"
+      ],
+      "output": [
+        "./src/**/*.js",
+        "!src/utils/**/*.js"
+      ],
+      "clean": "if-file-deleted",
+      "dependencies": [
+        {
+          "script": "../css-custom-vars-viewer/:build"
+        },
+        {
+          "script": "../../:build"
+        }
+      ]
+    },
+    "copy-docs": {
+      "command": "node scripts/copy-component-docs.js",
+      "files": [
+        "../../packages/**/*.md",
+        "../../packages/**/*.ts",
+        "../../tools/**/*.md",
+        "../../tools/**/*.ts",
+        "scripts/copy-component-docs.js",
+        "scripts/component-template-parts.js"
+      ],
+      "clean": "if-file-deleted",
+      "output": [
+        "content/components/**/*.md",
+        "content/tools/**/*.md"
+      ],
+      "dependencies": [
+        {
+          "script": "../../:docs:analyze",
+          "cascade": false
+        }
+      ]
+    },
+    "serve": {
+      "command": "wds --config web-dev-server.config.js",
+      "service": true,
+      "files": [],
+      "dependencies": [
+        {
+          "script": "build:assets",
+          "cascade": false
+        },
+        {
+          "script": "build:search-index",
+          "cascade": false
+        }
+      ]
     }
+  }
 }
