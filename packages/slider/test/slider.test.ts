@@ -154,6 +154,7 @@ describe('Slider', () => {
                 composed: true,
             })
         );
+        await new Promise((resolve) => setTimeout(resolve, 300));
         await elementUpdated(el);
 
         expect(el.dragging).to.be.false;
@@ -168,8 +169,8 @@ describe('Slider', () => {
                 composed: true,
             })
         );
+        await new Promise((resolve) => setTimeout(resolve, 300));
         await elementUpdated(el);
-
         expect(el.dragging, 'it is dragging 1').to.be.true;
         expect(pointerId, '2').to.equal(1);
 
@@ -196,6 +197,7 @@ describe('Slider', () => {
                 composed: true,
             })
         );
+        await new Promise((resolve) => setTimeout(resolve, 300));
         await elementUpdated(el);
 
         expect(el.dragging, 'it is dragging 2').to.be.true;
@@ -243,6 +245,7 @@ describe('Slider', () => {
                 cancelable: true,
             })
         );
+        await new Promise((resolve) => setTimeout(resolve, 300));
         await elementUpdated(el);
 
         expect(pointerId).to.equal(-1);
@@ -259,6 +262,7 @@ describe('Slider', () => {
                 cancelable: true,
             })
         );
+        await new Promise((resolve) => setTimeout(resolve, 300));
         await elementUpdated(el);
 
         expect(pointerId).to.equal(4);
@@ -320,6 +324,7 @@ describe('Slider', () => {
                 cancelable: true,
             })
         );
+        await new Promise((resolve) => setTimeout(resolve, 300));
         await elementUpdated(el);
 
         expect(el.dragging).to.be.false;
@@ -337,6 +342,7 @@ describe('Slider', () => {
                 cancelable: true,
             })
         );
+        await new Promise((resolve) => setTimeout(resolve, 300));
         await elementUpdated(el);
 
         expect(pointerId).to.equal(-1);
@@ -580,6 +586,7 @@ describe('Slider', () => {
                 bubbles: true,
             })
         );
+        await new Promise((resolve) => setTimeout(resolve, 300));
         await elementUpdated(el);
         await nextFrame();
         handle.dispatchEvent(
@@ -633,6 +640,7 @@ describe('Slider', () => {
                 bubbles: true,
             })
         );
+        await new Promise((resolve) => setTimeout(resolve, 300));
         await elementUpdated(el);
         handle.dispatchEvent(
             new PointerEvent('pointermove', {
@@ -843,6 +851,89 @@ describe('Slider', () => {
 
         expect(el.variant).to.equal('tick');
         expect(el.getAttribute('variant')).to.equal('tick');
+    });
+    it('renders fill from the centerPoint of the track when fill-start has no value', async () => {
+        const el = await fixture<Slider>(
+            html`
+                <sp-slider
+                    max="20"
+                    fill-start
+                    min="0"
+                    value="10"
+                    step="1"
+                ></sp-slider>
+            `
+        );
+
+        await elementUpdated(el);
+        await nextFrame();
+        await nextFrame();
+        const fillElement = el.shadowRoot.querySelector(
+            '.fill'
+        ) as HTMLDivElement;
+
+        expect(fillElement).to.exist;
+        expect(fillElement.style.left).to.equal('50%');
+        expect(fillElement.style.width).to.equal('0%');
+        expect(el.values).to.deep.equal({ value: 10 });
+    });
+    it('renders fill from fill-start point', async () => {
+        const el = await fixture<Slider>(
+            html`
+                <sp-slider
+                    max="100"
+                    fill-start="15"
+                    min="0"
+                    value="10"
+                ></sp-slider>
+            `
+        );
+
+        await elementUpdated(el);
+        await nextFrame();
+        await nextFrame();
+        const fillElement = el.shadowRoot.querySelector(
+            '.fill'
+        ) as HTMLDivElement;
+
+        expect(fillElement).to.exist;
+        expect(fillElement.style.left).to.equal('10%');
+        expect(fillElement.style.width).to.equal('5%');
+        expect(el.values).to.deep.equal({ value: 10 });
+
+        const handle = el.shadowRoot.querySelector('.handle') as HTMLDivElement;
+        const handleBoundingRect = handle.getBoundingClientRect();
+        const position: [number, number] = [
+            handleBoundingRect.x + handleBoundingRect.width / 2,
+            handleBoundingRect.y + handleBoundingRect.height / 2,
+        ];
+        await sendMouse({
+            steps: [
+                {
+                    type: 'move',
+                    position,
+                },
+                {
+                    type: 'down',
+                },
+            ],
+        });
+
+        await elementUpdated(el);
+        await sendMouse({
+            steps: [
+                {
+                    type: 'move',
+                    position: [
+                        200,
+                        handleBoundingRect.y + handleBoundingRect.height + 100,
+                    ],
+                },
+            ],
+        });
+        await nextFrame();
+
+        expect(el.value).to.equal(24);
     });
     it('has a `focusElement`', async () => {
         const el = await fixture<Slider>(
@@ -1520,5 +1611,72 @@ describe('Slider', () => {
         });
         await elementUpdated(el);
         expect(el.values).to.deep.equal({ a: 10, b: 20, c: 29 });
+    });
+    it('resets to default value on double click after moving pointer', async () => {
+        let pointerId = -1;
+        const el = await fixture<Slider>(
+            html`
+                <sp-slider
+                    max="1"
+                    fill-start
+                    min="0"
+                    value=".7"
+                    step="0.01"
+                    style="width: 100px"
+                ></sp-slider>
+            `
+        );
+        await elementUpdated(el);
+        expect(el.value, 'initial').to.equal(0.7);
+        expect(pointerId).to.equal(-1);
+        const handle = el.shadowRoot.querySelector('.handle') as HTMLDivElement;
+        el.track.setPointerCapture = (id: number) => (pointerId = id);
+        el.track.releasePointerCapture = (id: number) => (pointerId = id);
+
+        handle.dispatchEvent(
+            new PointerEvent('pointermove', {
+                clientX: 0,
+                cancelable: true,
+                composed: true,
+                bubbles: true,
+            })
+        );
+
+        await elementUpdated(el);
+        await nextFrame();
+
+        handle.dispatchEvent(
+            new PointerEvent('pointerdown', {
+                clientX: 0,
+                cancelable: true,
+                button: 0,
+                composed: true,
+                bubbles: true,
+            })
+        );
+
+        handle.dispatchEvent(new PointerEvent('pointerup'));
+
+        await new Promise((resolve) => setTimeout(resolve, 300));
+
+        handle.dispatchEvent(
+            new PointerEvent('pointerdown', {
+                clientX: 0,
+                cancelable: true,
+                button: 0,
+                composed: true,
+                bubbles: true,
+            })
+        );
+
+        handle.dispatchEvent(new PointerEvent('pointerup'));
+
+        await elementUpdated(el);
+        await nextFrame();
+
+        expect(
+            el.value,
+            'reset to default value on double click after moving pointer'
+        ).to.equal(0.7);
     });
 });

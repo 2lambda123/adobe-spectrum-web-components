@@ -10,7 +10,6 @@
     --spectrum-neutral-background-color-selected-key-focus: var(
         --spectrum-gray-800
     );
-    --spectrum-color-handle-outer-border-color: var(--spectrum-black);
     --spectrum-slider-track-thickness: 2px;
     --spectrum-slider-handle-gap: 4px;
     --spectrum-picker-border-width: var(--spectrum-border-width-100);
@@ -264,6 +263,7 @@
     );
     --system-spectrum-actionbutton-staticwhite-selected-mod-actionbutton-border-color-disabled: transparent;
 }
+
 :host,
 :root {
     --system-spectrum-actiongroup-gap-size-compact: 0;
@@ -1023,6 +1023,7 @@
     --system-spectrum-checkbox-control-color-down: var(--spectrum-gray-800);
     --system-spectrum-checkbox-control-color-focus: var(--spectrum-gray-700);
 }
+
 :host,
 :root {
     --system-spectrum-closebutton-background-color-default: transparent;
@@ -1066,7 +1067,6 @@
         --spectrum-gray-200
     );
 }
-
 :host,
 :root {
     --system-spectrum-picker-background-color-default: var(--spectrum-gray-75);
@@ -1090,6 +1090,7 @@
     --system-spectrum-picker-border-color-active: var(--spectrum-gray-700);
     --system-spectrum-picker-border-color-key-focus: var(--spectrum-gray-600);
 }
+
 :host,
 :root {
     --system-spectrum-pickerbutton-spectrum-picker-button-background-color: var(
@@ -1114,6 +1115,7 @@
         --spectrum-border-width-100
     );
 }
+
 :host,
 :root {
     --system-spectrum-popover-border-width: var(--spectrum-border-width-100);
@@ -1140,6 +1142,7 @@
         --spectrum-accent-color-1000
     );
 }
+
 :host,
 :root {
     --system-spectrum-search-border-radius: var(--spectrum-corner-radius-100);
@@ -1215,7 +1218,21 @@
     --system-spectrum-stepper-border-width: var(--spectrum-border-width-100);
     --system-spectrum-stepper-buttons-border-style: none;
     --system-spectrum-stepper-buttons-border-width: 0;
+    --system-spectrum-stepper-buttons-border-color: var(--spectrum-gray-500);
     --system-spectrum-stepper-buttons-background-color: var(--spectrum-gray-50);
+    --system-spectrum-stepper-buttons-border-color-hover: var(
+        --spectrum-gray-600
+    );
+    --system-spectrum-stepper-buttons-border-color-focus: var(
+        --spectrum-gray-800
+    );
+    --system-spectrum-stepper-buttons-border-color-keyboard-focus: var(
+        --spectrum-gray-900
+    );
+    --system-spectrum-stepper-button-border-radius-reset: 0px;
+    --system-spectrum-stepper-button-border-width: var(
+        --spectrum-border-width-100
+    );
     --system-spectrum-stepper-border-color: var(--spectrum-gray-500);
     --system-spectrum-stepper-border-color-hover: var(--spectrum-gray-600);
     --system-spectrum-stepper-border-color-focus: var(--spectrum-gray-800);
@@ -1225,7 +1242,18 @@
     --system-spectrum-stepper-border-color-keyboard-focus: var(
         --spectrum-gray-900
     );
-    --system-spectrum-stepper-button-border-radius-reset: 0px;
+    --system-spectrum-stepper-border-color-invalid: var(
+        --spectrum-negative-border-color-default
+    );
+    --system-spectrum-stepper-border-color-focus-invalid: var(
+        --spectrum-negative-border-color-focus
+    );
+    --system-spectrum-stepper-border-color-focus-hover-invalid: var(
+        --spectrum-negative-border-color-focus-hover
+    );
+    --system-spectrum-stepper-border-color-keyboard-focus-invalid: var(
+        --spectrum-negative-border-color-key-focus
+    );
     --system-spectrum-stepper-button-background-color-focus: var(
         --spectrum-gray-300
     );
@@ -1264,6 +1292,7 @@
 :root {
     --system-spectrum-tabs-font-weight: var(--spectrum-default-font-weight);
 }
+
 :host,
 :root {
     --system-spectrum-tag-border-color: var(--spectrum-gray-700);
@@ -1339,6 +1368,7 @@
         --spectrum-component-edge-to-visual-200
     );
 }
+
 :host,
 :root {
     --system-spectrum-textfield-border-color: var(--spectrum-gray-500);
@@ -1359,6 +1389,7 @@
         --spectrum-neutral-subdued-background-color-default
     );
 }
+
 :host,
 :root {
     --system-spectrum-tooltip-backgound-color-default-neutral: var(

@@ -165,7 +165,7 @@ export class Overlay extends OverlayFeatures {
      * when there is no trigger element.
      */
     @property({ type: Number })
-    override offset: number | [number, number] = 6;
+    override offset: number | [number, number] = 0;
 
     protected override placementController = new PlacementController(this);
 
@@ -1003,6 +1003,9 @@ export class Overlay extends OverlayFeatures {
             if (this.open && typeof changes.get('placement') !== 'undefined') {
                 this.placementController.resetOverlayPosition();
             }
+        }
+        if (changes.has('state') && this.state === 'closed') {
+            this.placementController.clearOverlayPosition();
         }
     }
 
