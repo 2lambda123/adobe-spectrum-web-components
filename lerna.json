@@ -1,23 +1,17 @@
 {
-  "packages": [
-    "linters/*",
-    "packages/*",
-    "projects/*",
-    "tools/*",
-    "react/*"
-  ],
-  "version": "0.40.4",
-  "granularPathspec": false,
-  "npmClient": "yarn",
-  "command": {
-    "publish": {
-      "conventionalCommits": true,
-      "ignoreChanges": [
-        "**/*.md",
-        "**/tsconfig.json",
-        "**/test/**",
-        "**/stories/**"
-      ]
+    "packages": ["linters/*", "packages/*", "projects/*", "tools/*", "react/*"],
+    "version": "0.40.4",
+    "granularPathspec": false,
+    "npmClient": "yarn",
+    "command": {
+        "publish": {
+            "conventionalCommits": true,
+            "ignoreChanges": [
+                "**/*.md",
+                "**/tsconfig.json",
+                "**/test/**",
+                "**/stories/**"
+            ]
+        }
     }
-  }
 }

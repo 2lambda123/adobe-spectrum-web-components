@@ -1,71 +1,71 @@
 {
-  "name": "@spectrum-web-components/underlay",
-  "version": "0.40.4",
-  "publishConfig": {
-    "access": "public"
-  },
-  "description": "",
-  "license": "Apache-2.0",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/adobe/spectrum-web-components.git",
-    "directory": "packages/underlay"
-  },
-  "author": "",
-  "homepage": "https://opensource.adobe.com/spectrum-web-components/components/underlay",
-  "bugs": {
-    "url": "https://github.com/adobe/spectrum-web-components/issues"
-  },
-  "main": "./src/index.js",
-  "module": "./src/index.js",
-  "type": "module",
-  "exports": {
-    ".": {
-      "development": "./src/index.dev.js",
-      "default": "./src/index.js"
+    "name": "@spectrum-web-components/underlay",
+    "version": "0.40.4",
+    "publishConfig": {
+        "access": "public"
     },
-    "./package.json": "./package.json",
-    "./src/Underlay.js": {
-      "development": "./src/Underlay.dev.js",
-      "default": "./src/Underlay.js"
+    "description": "",
+    "license": "Apache-2.0",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/adobe/spectrum-web-components.git",
+        "directory": "packages/underlay"
     },
-    "./src/index.js": {
-      "development": "./src/index.dev.js",
-      "default": "./src/index.js"
+    "author": "",
+    "homepage": "https://opensource.adobe.com/spectrum-web-components/components/underlay",
+    "bugs": {
+        "url": "https://github.com/adobe/spectrum-web-components/issues"
     },
-    "./src/underlay.css.js": "./src/underlay.css.js",
-    "./sp-underlay.js": {
-      "development": "./sp-underlay.dev.js",
-      "default": "./sp-underlay.js"
-    }
-  },
-  "scripts": {
-    "test": "echo \"Error: run tests from mono-repo root.\" && exit 1"
-  },
-  "files": [
-    "**/*.d.ts",
-    "**/*.js",
-    "**/*.js.map",
-    "custom-elements.json",
-    "!stories/",
-    "!test/"
-  ],
-  "keywords": [
-    "spectrum css",
-    "web components",
-    "lit-element",
-    "lit-html"
-  ],
-  "dependencies": {
-    "@spectrum-web-components/base": "^0.40.4"
-  },
-  "devDependencies": {
-    "@spectrum-css/underlay": "^3.1.0"
-  },
-  "types": "./src/index.d.ts",
-  "customElements": "custom-elements.json",
-  "sideEffects": [
-    "./sp-*.js",
-    "./**/*.dev.js"
-  ]
+    "main": "./src/index.js",
+    "module": "./src/index.js",
+    "type": "module",
+    "exports": {
+        ".": {
+            "development": "./src/index.dev.js",
+            "default": "./src/index.js"
+        },
+        "./package.json": "./package.json",
+        "./src/Underlay.js": {
+            "development": "./src/Underlay.dev.js",
+            "default": "./src/Underlay.js"
+        },
+        "./src/index.js": {
+            "development": "./src/index.dev.js",
+            "default": "./src/index.js"
+        },
+        "./src/underlay.css.js": "./src/underlay.css.js",
+        "./sp-underlay.js": {
+            "development": "./sp-underlay.dev.js",
+            "default": "./sp-underlay.js"
+        }
+    },
+    "scripts": {
+        "test": "echo \"Error: run tests from mono-repo root.\" && exit 1"
+    },
+    "files": [
+        "**/*.d.ts",
+        "**/*.js",
+        "**/*.js.map",
+        "custom-elements.json",
+        "!stories/",
+        "!test/"
+    ],
+    "keywords": [
+        "spectrum css",
+        "web components",
+        "lit-element",
+        "lit-html"
+    ],
+    "dependencies": {
+        "@spectrum-web-components/base": "^0.40.4"
+    },
+    "devDependencies": {
+        "@spectrum-css/underlay": "^3.1.0"
+    },
+    "types": "./src/index.d.ts",
+    "customElements": "custom-elements.json",
+    "sideEffects": [
+        "./sp-*.js",
+        "./**/*.dev.js"
+    ]
 }

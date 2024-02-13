@@ -1,8 +1,8 @@
 {
-  "name": "@types/swc",
-  "version": "0.40.4",
-  "private": true,
-  "main": "",
-  "types": "./global.d.ts",
-  "customElements": "custom-elements.json"
+    "name": "@types/swc",
+    "version": "0.40.4",
+    "private": true,
+    "main": "",
+    "types": "./global.d.ts",
+    "customElements": "custom-elements.json"
 }

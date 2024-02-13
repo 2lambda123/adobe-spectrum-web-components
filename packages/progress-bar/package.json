@@ -1,74 +1,74 @@
 {
-  "name": "@spectrum-web-components/progress-bar",
-  "version": "0.40.4",
-  "publishConfig": {
-    "access": "public"
-  },
-  "description": "",
-  "license": "Apache-2.0",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/adobe/spectrum-web-components.git",
-    "directory": "packages/progress-bar"
-  },
-  "author": "",
-  "homepage": "https://opensource.adobe.com/spectrum-web-components/components/progress-bar",
-  "bugs": {
-    "url": "https://github.com/adobe/spectrum-web-components/issues"
-  },
-  "main": "src/index.js",
-  "module": "src/index.js",
-  "type": "module",
-  "exports": {
-    ".": {
-      "development": "./src/index.dev.js",
-      "default": "./src/index.js"
+    "name": "@spectrum-web-components/progress-bar",
+    "version": "0.40.4",
+    "publishConfig": {
+        "access": "public"
     },
-    "./package.json": "./package.json",
-    "./src/ProgressBar.js": {
-      "development": "./src/ProgressBar.dev.js",
-      "default": "./src/ProgressBar.js"
+    "description": "",
+    "license": "Apache-2.0",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/adobe/spectrum-web-components.git",
+        "directory": "packages/progress-bar"
     },
-    "./src/index.js": {
-      "development": "./src/index.dev.js",
-      "default": "./src/index.js"
+    "author": "",
+    "homepage": "https://opensource.adobe.com/spectrum-web-components/components/progress-bar",
+    "bugs": {
+        "url": "https://github.com/adobe/spectrum-web-components/issues"
     },
-    "./src/progress-bar.css.js": "./src/progress-bar.css.js",
-    "./sp-progress-bar.js": {
-      "development": "./sp-progress-bar.dev.js",
-      "default": "./sp-progress-bar.js"
-    }
-  },
-  "scripts": {
-    "test": "echo \"Error: run tests from mono-repo root.\" && exit 1"
-  },
-  "files": [
-    "**/*.d.ts",
-    "**/*.js",
-    "**/*.js.map",
-    "custom-elements.json",
-    "!stories/",
-    "!test/"
-  ],
-  "keywords": [
-    "spectrum css",
-    "web components",
-    "lit-element",
-    "lit-html"
-  ],
-  "dependencies": {
-    "@spectrum-web-components/base": "^0.40.4",
-    "@spectrum-web-components/field-label": "^0.40.4",
-    "@spectrum-web-components/reactive-controllers": "^0.40.4",
-    "@spectrum-web-components/shared": "^0.40.4"
-  },
-  "devDependencies": {
-    "@spectrum-css/progressbar": "^3.1.0"
-  },
-  "types": "./src/index.d.ts",
-  "customElements": "custom-elements.json",
-  "sideEffects": [
-    "./sp-*.js",
-    "./**/*.dev.js"
-  ]
+    "main": "src/index.js",
+    "module": "src/index.js",
+    "type": "module",
+    "exports": {
+        ".": {
+            "development": "./src/index.dev.js",
+            "default": "./src/index.js"
+        },
+        "./package.json": "./package.json",
+        "./src/ProgressBar.js": {
+            "development": "./src/ProgressBar.dev.js",
+            "default": "./src/ProgressBar.js"
+        },
+        "./src/index.js": {
+            "development": "./src/index.dev.js",
+            "default": "./src/index.js"
+        },
+        "./src/progress-bar.css.js": "./src/progress-bar.css.js",
+        "./sp-progress-bar.js": {
+            "development": "./sp-progress-bar.dev.js",
+            "default": "./sp-progress-bar.js"
+        }
+    },
+    "scripts": {
+        "test": "echo \"Error: run tests from mono-repo root.\" && exit 1"
+    },
+    "files": [
+        "**/*.d.ts",
+        "**/*.js",
+        "**/*.js.map",
+        "custom-elements.json",
+        "!stories/",
+        "!test/"
+    ],
+    "keywords": [
+        "spectrum css",
+        "web components",
+        "lit-element",
+        "lit-html"
+    ],
+    "dependencies": {
+        "@spectrum-web-components/base": "^0.40.4",
+        "@spectrum-web-components/field-label": "^0.40.4",
+        "@spectrum-web-components/reactive-controllers": "^0.40.4",
+        "@spectrum-web-components/shared": "^0.40.4"
+    },
+    "devDependencies": {
+        "@spectrum-css/progressbar": "^3.1.0"
+    },
+    "types": "./src/index.d.ts",
+    "customElements": "custom-elements.json",
+    "sideEffects": [
+        "./sp-*.js",
+        "./**/*.dev.js"
+    ]
 }
