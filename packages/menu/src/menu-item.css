@@ -36,9 +36,9 @@ governing permissions and limitations under the License.
     margin-left: auto;
 }
 
-/* N: Manually adding this selector because I can't use this selector in 
+/* N: Manually adding this selector because I can't use this selector in
 ** spectrum-menu.css without touching all the other `.spectrum-Menu-item`s in
-** that file which I don't want to surface 
+** that file which I don't want to surface
 */
 @media (forced-colors: active) {
     :host {
