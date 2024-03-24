@@ -12,8 +12,8 @@ specific language governing permissions and limitations under the License.
 */
 
 import {
-    builder,
-    converterFor,
+  builder,
+  converterFor,
 } from '../../../tasks/process-spectrum-utils.js';
 
 const converter = converterFor('spectrum-Button');
@@ -23,97 +23,90 @@ const converter = converterFor('spectrum-Button');
  *     }
  */
 const config = {
-    conversions: [
+  conversions : [
+    {
+      inPackage : '@spectrum-css/button',
+      outPackage : 'button',
+      fileName : 'button',
+      excludeByComponents : [
+        builder.element('a'),
         {
-            inPackage: '@spectrum-css/button',
-            outPackage: 'button',
-            fileName: 'button',
-            excludeByComponents: [
-                builder.element('a'),
-                {
-                    type: 'pseudo-element',
-                    kind: 'custom',
-                    name: '-moz-focus-inner',
-                },
-            ],
-            components: [
-                converter.classToHost(),
-                converter.classToAttribute('spectrum-Button--quiet'),
-                converter.classToAttribute('spectrum-Button--emphasized'),
-                converter.classToAttribute('is-selected', 'selected'),
-                converter.classToAttribute('is-focused', 'focused'),
-                /**
-                 * HACK!
-                 * This relies on the fact that spectrum-css is using both `&:disabled`
-                 * and `&.is-disabled` in the selectors for disabled states. We're using
-                 * the class based selector here to also emit a `pending` selector.
-                 */
-                // converter.classToAttribute('is-disabled', 'pending'),
-                converter.pseudoToAttribute('disabled', 'disabled'),
-                converter.pseudoToAttribute('active', 'active'),
-                converter.classToAttribute(
-                    'spectrum-Button--iconOnly',
-                    'icon-only'
-                ),
-                // Default to `size='m'` without needing the attribute
-                converter.classToHost('spectrum-Button--sizeM'),
-                ...converter.enumerateAttributes(
-                    [
-                        ['spectrum-Button--sizeS', 's'],
-                        ['spectrum-Button--sizeL', 'l'],
-                        ['spectrum-Button--sizeXL', 'xl'],
-                    ],
-                    'size'
-                ),
-                ...converter.enumerateAttributes(
-                    [
-                        ['spectrum-Button--accent'],
-                        ['spectrum-Button--primary'],
-                        ['spectrum-Button--secondary'],
-                        ['spectrum-Button--negative'],
-                    ],
-                    'variant'
-                ),
-                ...converter.enumerateAttributes(
-                    [['spectrum-Button--fill'], ['spectrum-Button--outline']],
-                    'treatment'
-                ),
-                ...converter.enumerateAttributes(
-                    [
-                        ['spectrum-Button--staticWhite', 'white'],
-                        ['spectrum-Button--staticBlack', 'black'],
-                    ],
-                    'static'
-                ),
-                converter.classToId('spectrum-Button-label'),
-                converter.classToSlotted('spectrum-Icon', 'icon'),
-                {
-                    find: [
-                        builder.class('spectrum-Icon'),
-                        builder.combinator('+'),
-                        builder.class('spectrum-Button-label'),
-                    ],
-                    replace: [
-                        {
-                            replace: builder.attribute('name', 'icon', 'equal'),
-                            hoist: false,
-                        },
-                        {
-                            replace: builder.combinator('+'),
-                        },
-                        {
-                            replace: builder.id('label'),
-                        },
-                    ],
-                },
-                {
-                    hoist: false,
-                    find: builder.pseudoClass('empty'),
-                    replace: builder.attribute('hidden'),
-                },
-            ],
+          type : 'pseudo-element',
+          kind : 'custom',
+          name : '-moz-focus-inner',
         },
-    ],
+      ],
+      components : [
+        converter.classToHost(),
+        converter.classToAttribute('spectrum-Button--quiet'),
+        converter.classToAttribute('spectrum-Button--emphasized'),
+        converter.classToAttribute('is-selected', 'selected'),
+        converter.classToAttribute('is-focused', 'focused'),
+        /**
+         * HACK!
+         * This relies on the fact that spectrum-css is using both `&:disabled`
+         * and `&.is-disabled` in the selectors for disabled states. We're using
+         * the class based selector here to also emit a `pending` selector.
+         */
+        // converter.classToAttribute('is-disabled', 'pending'),
+        converter.pseudoToAttribute('disabled', 'disabled'),
+        converter.pseudoToAttribute('active', 'active'),
+        converter.classToAttribute('spectrum-Button--iconOnly', 'icon-only'),
+        // Default to `size='m'` without needing the attribute
+        converter.classToHost('spectrum-Button--sizeM'),
+        ...converter.enumerateAttributes(
+            [
+              [ 'spectrum-Button--sizeS', 's' ],
+              [ 'spectrum-Button--sizeL', 'l' ],
+              [ 'spectrum-Button--sizeXL', 'xl' ],
+            ],
+            'size'),
+        ...converter.enumerateAttributes(
+            [
+              [ 'spectrum-Button--accent' ],
+              [ 'spectrum-Button--primary' ],
+              [ 'spectrum-Button--secondary' ],
+              [ 'spectrum-Button--negative' ],
+            ],
+            'variant'),
+        ...converter.enumerateAttributes(
+            [ [ 'spectrum-Button--fill' ], [ 'spectrum-Button--outline' ] ],
+            'treatment'),
+        ...converter.enumerateAttributes(
+            [
+              [ 'spectrum-Button--staticWhite', 'white' ],
+              [ 'spectrum-Button--staticBlack', 'black' ],
+            ],
+            'static'),
+        converter.classToId('spectrum-Button-label'),
+        converter.classToSlotted('spectrum-Icon', 'icon'),
+        {
+          find : [
+            builder.class('spectrum-Icon'),
+            builder.combinator('+'),
+            builder.class('spectrum-Button-label'),
+          ],
+          replace : [
+            {
+              replace : builder.attribute('name', 'icon', 'equal'),
+              hoist : false,
+            },
+            {
+              replace : builder.combinator('+'),
+            },
+            {
+              replace : builder.id('label'),
+            },
+          ],
+        },
+        {
+          hoist : false,
+          find : builder.pseudoClass('empty'),
+          replace : builder.attribute('hidden'),
+        },
+      ],
+    },
+  ],
 };
 
 export default config;
