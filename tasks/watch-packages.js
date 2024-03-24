@@ -11,30 +11,29 @@ REPRESENTATIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 */
 
-import {buildPackage, watchFiles} from './ts-tools.js';
+import { buildPackage, watchFiles } from './ts-tools.js';
 import chokidar from 'chokidar';
 import debounce from 'debounce';
 
 const debounceBuildTSFiles = debounce(buildPackage, 200);
 
 const watchTS = async () => {
-  const files = await watchFiles();
-  // One-liner for current directory
-  chokidar
-      .watch(files, {
-        ignoreInitial : true,
-      })
-      .on('change',
-          (path) => {
+    const files = await watchFiles();
+    // One-liner for current directory
+    chokidar
+        .watch(files, {
+            ignoreInitial: true,
+        })
+        .on('change', (path) => {
             console.log(`Process TS change in: ${path}`);
-            debounceBuildTSFiles([ `./${path}` ]);
-          })
-      .on('add', (path) => {
-        console.log(`Process TS added at: ${path}`);
-        debounceBuildTSFiles([ `./${path}` ]);
-      });
+            debounceBuildTSFiles([`./${path}`]);
+        })
+        .on('add', (path) => {
+            console.log(`Process TS added at: ${path}`);
+            debounceBuildTSFiles([`./${path}`]);
+        });
 
-  console.log('Listening to TS...');
+    console.log('Listening to TS...');
 };
 
 watchTS();
