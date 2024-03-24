@@ -1,14 +1,14 @@
 // @ts-check
 /*
 Copyright 2023 Adobe. All rights reserved.
-This file is licensed to you under the Apache License, Version 2.0 (the 'License');
-you may not use this file except in compliance with the License. You may obtain a copy
-of the License at http://www.apache.org/licenses/LICENSE-2.0
+This file is licensed to you under the Apache License, Version 2.0 (the
+'License'); you may not use this file except in compliance with the License. You
+may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
 
-Unless required by applicable law or agreed to in writing, software distributed under
-the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
-OF ANY KIND, either express or implied. See the License for the specific language
-governing permissions and limitations under the License.
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR
+REPRESENTATIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
 */
 
 import {
@@ -19,7 +19,8 @@ import {
 const converter = converterFor('spectrum-Button');
 
 /**
- * @type { import('../../../tasks/spectrum-css-converter').SpectrumCSSConverter }
+ * @type { import('../../../tasks/spectrum-css-converter').SpectrumCSSConverter
+ *     }
  */
 const config = {
     conversions: [
@@ -43,8 +44,9 @@ const config = {
                 converter.classToAttribute('is-focused', 'focused'),
                 /**
                  * HACK!
-                 * This relies on the fact that spectrum-css is using both `&:disabled` and `&.is-disabled` in the selectors
-                 * for disabled states. We're using the class based selector here to also emit a `pending` selector.
+                 * This relies on the fact that spectrum-css is using both `&:disabled`
+                 * and `&.is-disabled` in the selectors for disabled states. We're using
+                 * the class based selector here to also emit a `pending` selector.
                  */
                 // converter.classToAttribute('is-disabled', 'pending'),
                 converter.pseudoToAttribute('disabled', 'disabled'),

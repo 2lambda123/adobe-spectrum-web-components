@@ -1,13 +1,13 @@
 /*
 Copyright 2022 Adobe. All rights reserved.
-This file is licensed to you under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License. You may obtain a copy
-of the License at http://www.apache.org/licenses/LICENSE-2.0
+This file is licensed to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance with the License. You
+may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
 
-Unless required by applicable law or agreed to in writing, software distributed under
-the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
-OF ANY KIND, either express or implied. See the License for the specific language
-governing permissions and limitations under the License.
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+REPRESENTATIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
 */
 
 import fg from 'fast-glob';
@@ -29,7 +29,10 @@ const tokensRoot = path.join(
     '*.css'
 );
 
-/** @todo Could generate this from CSS packages that have @spectrum-css/tokens as a dependency */
+/**
+ * @todo Could generate this from CSS packages that have @spectrum-css/tokens
+ * as a dependency
+ */
 const tokenPackages = [
     'accordion',
     'actionbar',
@@ -99,7 +102,8 @@ const importantCommentRegExp = /\/\*![^*]*\*+([^\/*][^*]*\*+)*\//g;
 
 const targetHost = (css) => {
     /** @note Could use this regex to more permissive of class names */
-    // return css.replaceAll(/(?:\.spectrum(--[a-z]+,?(\n|\s)*)?)+ \{/g, ':host,\n:root {');
+    // return css.replaceAll(/(?:\.spectrum(--[a-z]+,?(\n|\s)*)?)+ \{/g,
+    // ':host,\n:root {');
 
     /**
      * @note ...Or this to lock down expected class names
